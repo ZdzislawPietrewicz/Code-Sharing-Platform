@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Latest</title>
+    <link rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h1>Code Sharing Platform</h1>
+<ul th:each="code : ${latestCodes}">
+    <span id="load_date" th:text="${#temporals.format(code.date, 'dd-MM-yyyy HH:mm:ss')}"></span>
+    <pre id="code_snippet">
+        <code th:text="${code.code}"></code>
+    </pre>
+</ul>
+</body>
+</html>
